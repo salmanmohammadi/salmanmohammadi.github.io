@@ -19,7 +19,7 @@ $$
 \nabla_{\theta}J(\theta) = \mathbb{E}[\sum\limits_{t=0}^{\infty}\nabla_{\theta}\ln\pi_\theta(a_t|s_t)R_t]
 $$
 
-In other words, the gradient of our performance measure $J(\theta)$ with respect to our policy parameters $\theta$ points in the direction of increasing the expected return $J(\theta)$. Crucially, this shows that we can estimate the true gradient using an expectation of the sample gradient - the core idea behind the REINFORCE{% sidenote "4" "[Reinforcement Learning: An Introduction, 13.3 REINFORCE: Monte Carlo Policy Gradient, Sutton and Barto](https://www.andrew.cmu.edu/course/10-703/textbook/BartoSutton.pdf)" %} algorithm. This is great. The return in this expression can now be replaced with alternative estimators of the policy-gradient contribution. In particular, replacing the return with the advantage function preserves the expected gradient while typically reducing variance; practical advantage estimates may introduce some bias${% sidenote "5" "[Section 2, High Dimensional Continuous Control Using Generalized Advantage Estimation, Schulman et. al. 2016](https://arxiv.org/pdf/1506.02438.pdf)" %} :
+In other words, the gradient of our performance measure $J(\theta)$ with respect to our policy parameters $\theta$ points in the direction of increasing the expected return $J(\theta)$. Crucially, this shows that we can estimate the true gradient using an expectation of the sample gradient - the core idea behind the REINFORCE{% sidenote "4" "[Reinforcement Learning: An Introduction, 13.3 REINFORCE: Monte Carlo Policy Gradient, Sutton and Barto](https://www.andrew.cmu.edu/course/10-703/textbook/BartoSutton.pdf)" %} algorithm. This is great. The return in this expression can now be replaced with alternative estimators of the policy-gradient contribution. In particular, replacing the return with the advantage function preserves the expected gradient while typically reducing variance; practical advantage estimates may introduce some bias{% sidenote "5" "[Section 2, High Dimensional Continuous Control Using Generalized Advantage Estimation, Schulman et. al. 2016](https://arxiv.org/pdf/1506.02438.pdf)" %} :
 
 $$
 \begin{aligned}
@@ -53,7 +53,7 @@ r_t(\theta)=
 \frac{\pi_\theta(a_t|s_t)}
 {\pi_{\theta_{\mathrm{old}}}(a_t|s_t)}$$
 
-Policy gradient methods optimise policies through iterative gradient updates to parameters $\theta$. The old policy, $\pi_{\theta_{\mathrm{old}}}(a_t|s_{t})$, is the one used to generate the current trajectory, and the new policy, $\pi_{\theta}(a_t|s_{t})$ is the policy currently being optimised{% sidenote "8" "Note: at the start of a series of policy update steps, we have $\pi_{\theta_{\mathrm{old}}}(a_t|s_{t})=\pi_{\theta}(a_t|s_{t})$, so $r_t(\theta)=1$." %}. For a positive advantage, the surrogate objective encourages increasing the probability of the sampled action relative to the old policy; for a negative advantage, it encourages decreasing it{% sidenote "9" "The surrogate gradient encourages $\pi_\theta(a_t|s_t)$ to increase relative to $\pi_{\theta_{\mathrm{old}}}(a_t|s_t)$ when $A_t>0$, and decrease when $A_t<0$." %}. The core principle of TRPO (and PPO) is to prevent excessively large policy changes during optimisation. Updating using the ratio between old and new policies in this way allows for selective reinforcement or penalisation of actions whilst grounding updates relative to the original, stable policy{% sidenote "10" "Consider optimising our policy using eqn. 1 - without normalising the update w.r.t. the old policy, updates to the policy can lead to catastrophically large updates." %}.
+Policy gradient methods optimise policies through iterative gradient updates to parameters $\theta$. The old policy, $\pi_{\theta_{\mathrm{old}}}(a_t\vert s_{t})$, is the one used to generate the current trajectory, and the new policy, $\pi_{\theta}(a_t\vert s_{t})$ is the policy currently being optimised{% sidenote "8" "Note: at the start of a series of policy update steps, we have $\pi_{\theta_{\mathrm{old}}}(a_t\vert s_{t})=\pi_{\theta}(a_t\vert s_{t})$, so $r_t(\theta)=1$." %}. For a positive advantage, the surrogate objective encourages increasing the probability of the sampled action relative to the old policy; for a negative advantage, it encourages decreasing it{% sidenote "9" "The surrogate gradient encourages $\pi_\theta(a_t\vert s_t)$ to increase relative to $\pi_{\theta_{\mathrm{old}}}(a_t\vert s_t)$ when $A_t>0$, and decrease when $A_t<0$." %}. The core principle of TRPO (and PPO) is to prevent excessively large policy changes during optimisation. Updating using the ratio between old and new policies in this way allows for selective reinforcement or penalisation of actions whilst grounding updates relative to the original, stable policy{% sidenote "10" "Consider optimising our policy using eqn. 1 - without normalising the update w.r.t. the old policy, updates to the policy can lead to catastrophically large updates." %}.
 
 ### PPO
 PPO replaces TRPO's constrained optimisation with a clipped surrogate objective. PPO collects data using $\pi_{\theta_{\mathrm{old}}}$, then performs multiple optimisation epochs on that frozen batch; the likelihood ratio accounts for the changing policy, while clipping limits how far the surrogate can benefit from moving away from it:
@@ -166,7 +166,7 @@ $$
 &=(r_t+\gamma V_\phi(s_{t+1})-V_\phi(s_{t})) \\
 &+ \gamma(r_{t+1}+\gamma V_\phi(s_{t+2})-V_\phi(s_{t+1}))\\
 &+ \gamma^2(r_{t+2}+\gamma V_\phi(s_{t+3})-V_\phi(s_{t+2}))+ ... \\
-&= r_t \bcancel{\gamma V_\phi(s_{t+1})}-V_\phi(s_{t})\\
+&= r_t + \bcancel{\gamma V_\phi(s_{t+1})}-V_\phi(s_{t})\\
 &+ \gamma r_{t+1} + \bcancel{\gamma^{2}V_\phi(s_{t+2})}-\bcancel{\gamma V_\phi(s_{t+1})}\\
 &+ \gamma^2 r_{t+2} + \gamma^{3}V_\phi(s_{t+3})-\bcancel{\gamma^2 V_\phi(s_{t+2})}+...\\
 &=\sum\limits_{l=0}^{\infty}\gamma^{l}r_{t+l}- V_{\phi}(s_t)=G_t-V_\phi(s_t)
@@ -190,11 +190,11 @@ Tying everything together, we can show the general process of updating our polic
 >>
 >>Compute GAE backwards, $\hat{A_{t}}=\delta_t+\gamma\lambda m_t\hat{A}_{t+1}$ for $t=N,...,1$.
 >>
->>Compute $\pi_\theta(a_t|s_t)$ $\log$-probabilities for the stored actions and states.
+>>Compute $\pi_\theta(a_t\vert s_t)$ $\log$-probabilities for the stored actions and states.
 >>
 >>Optimise $\theta$ using $J(\theta)$, the PPO objective{% sidenote "21" "This is usually done over $M$ minibatch steps for $M \le N$. $\pi_{\theta_{\mathrm{old}}}$ is fixed as the initial policy at the start of the trajectory, and $\pi_\theta$ is taken as the policy at the current optimisation step." %}. 
 >>
->> Compute a return target $\hat{R}_t$, commonly $\hat{A}_t+V_{\phi_{\mathrm{old}}}(s_t)$, and optimise $\phi$ using $L_V=(V_\phi(s_t)-\hat{R}_t)^2$ using stored data${% sidenote "22" "Similarly to the policy optimisation step, this is also done over $M$ steps. $V_\phi$ is taken as the value function at the current optimisation step, and the return target can correspond to a bootstrapped $n$-step return." %}.
+>> Compute a return target $\hat{R}&#95;t$, commonly $\hat{A}&#95;t+V&#95;{\phi}(s_t)$ from the rollout-time critic, and optimise $\phi$ using $L&#95;V=(V&#95;\phi(s&#95;t)-\hat{R}&#95;t)^2$ using stored data{% sidenote "22" "Similarly to the policy optimisation step, this is also done over $M$ steps. $V&#95;\phi$ in the return target is taken as the value function at the current optimisation step, and the return target can correspond to a bootstrapped $n$-step return." %}.
 >
 >... repeat!
 
