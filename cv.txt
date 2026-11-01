@@ -3,33 +3,49 @@ SALMAN MOHAMMADI
 
 salman.mohammadi@outlook.com | github.com/SalmanMohammadi | salmanmohammadi.github.io
 
-Open-source post-training at scale. Ex-core maintainer of pytorch/torchtune. PyTorch Contributor Award 2024 nominee.
-
 EXPERIENCE
 ================================================================================================================================
 
-Axolotl AI | Open Source Machine Learning Engineer                                                   January 2025 - Present
+Luma AI | Research Scientist/Engineer                                                                February 2026 - Present
 --------------------------------------------------------------------------------------------------------------------------------
-Building distributed infrastructure for LLM post-training.
 
-- Added N-dimensional parallelism support in HuggingFace Accelerate, enabling hybrid FSDP + tensor parallelism + context
-  parallelism for multi-node training.
+- Directly Responsible Individual (DRI) for RL infrastructure:
+  - Set technical direction, prioritised work, and scoped projects and sprints across RL infrastructure.
+  - Onboarded, mentored, and unblocked engineers in the RL team.
+  
+- Co-developed the company’s asynchronous RL training stack on an open-source fork, supporting post-training of diffusion, vision-language-action (VLA), and vision-language model (VLM) policies across hundreds of NVIDIA and AMD accelerators.
+  - Developed asynchronous PPO for flow-matching VLA robotics policies, scaling to ~400 GPUs in simulation and extending to real robot fleets.
+  - Developed RL methods for diffusion image models to improve text rendering capabilities, doubling held-out OCR benchmark performance, with training across 256 GPUs.
+  - Trained VLMs of up to 300B parameters on diverse multimodal tasks including robotics, world understanding, 3D coding, and prompt expansion.
 
-- Added support for several post-training paradigms:
-  - Quantization-aware training with int4/fp8/nvfp4 layouts
-  - Process reward modeling for training reward models for fine-grained feedback
-  - Support for local-first, secure training of LLMs with GRPO using interpreter feedback
+- Contributed simulation and RL infrastructure, experiment planning, and debugging for GRPO training of a VLM-based robotics policy, which achieved 96.7% real-world task success after simulation-only training. https://zero-real.github.io/
 
-- Experience in fine-tuning and evaluating LLMs at scale across these paradigms:
-  - QAT on models up to 72B across multiple nodes
-  - Process reward models and GRPO at single node scale
+- Redesigned distributed training in the company's monorepo, replacing fragmented parallelism implementations with a unified N-dimensional mesh-based sharding system for data and models.
+  - Unified FSDP, HSDP, tensor, and context parallelism across deployments of up to 400 GPUs.
+  - Reduced peak memory usage by up to 12% and step time by up to 7% across ~300 training workloads spanning image, video, audio, and LLM experiments.
+  
+- Unblocked production rollout of a ~750B MoE LLM serving system by diagnosing a silent RDMA memory corruption issue in disaggregated prefill/decode attention caching, fixing corrupted outputs during decode, and substantially reducing decode latency in deployment.
 
-- Substantial experience in profiling and optimizing performance bottlenecks:
-  - Implemented efficient checkpointing and model meta-device initialisation for FSDP2
-  - Significant memory efficiency improvements in FSDP2 over Accelerate
-  - Improved performance for (Q)LoRA and FSDP2
-  - Eliminated NCCL timeouts in PEFT MoE training
-  - Added throughput and memory usage monitoring for benchmarking distributed training runs
+- Optimised simulation infrastructure for robotics RL across NVIDIA Isaac Sim fleets.
+  - Improved simulator physics and rendering pipelines, environment routing, and cross-cluster communication.
+  - Calibrated simulated motors and environment physics against physical hardware using episode replay pipelines to minimise drift when replaying real-world rollouts in sim. 
+
+Axolotl AI | Open Source Machine Learning Engineer                                                   January 2025 - February 2026
+--------------------------------------------------------------------------------------------------------------------------------
+
+- Implemented N-dimensional parallelism support in Hugging Face Accelerate, enabling hybrid FSDP, HSDP, tensor and context parallelism for multi-node training.
+
+- Extended support for several post-training paradigms:
+  - Quantization-aware training with int4, fp8, and nvfp4 layouts.
+  - Process reward modelling for step-level supervision.
+  - GRPO with interpreter feedback for local-first, secure agentic coding training.
+  - FSDP2 support for GRPO in Hugging Face TRL, and PEFT integration for Liger GRPO.
+
+- Profiled and optimised performance bottlenecks:
+  - Implemented efficient checkpointing and model meta-device initialisation for FSDP2.
+  - Improved FSDP memory efficiency and QLoRA performance.
+  - Eliminated NCCL timeouts in PEFT MoE training.
+  - Added throughput and memory usage monitoring for benchmarking distributed training runs.
 
 Canon Medical Research Europe | Scientist/Research Engineer                                         March 2021 - Dec 2024
 --------------------------------------------------------------------------------------------------------------------------------
@@ -49,33 +65,28 @@ Founding technical role in pre-seed startup applying AI to process improvement.
 - Technical lead writing Innovate UK SMART grant (~£0.5M). Managed project scope, direction, and administration.
 - Full-stack development: React-Native frontend, Python data pipeline with Microsoft Azure.
 
-SELECTED PULL REQUESTS
+Open-Source Contributions
 ================================================================================================================================
 
-Notable examples of my work in open-source.
+- nanocode: An end-to-end LLM training pipeline, from scratch in pure JAX.
+  - Implemented the full training stack spanning tokenizer training, model pretraining, synthetic data generation, agentic SFT, and DPO.
+  - Pretrained a 1.3B parameter model on 10.7B tokens using 8 TPU v6e chips for ~$200, achieving 52.5% MFU; reached the Hacker News front page (219 points, 270 GitHub stars).
+  - https://github.com/salmanmohammadi/nanocode
 
-PyTorch/Torchtune (Core Maintainer, July 2024 - July 2025)
+- PyTorch torchtune — Core Maintainer (Jul 2024–Jul 2025)
+  - Maintained and developed the library's RL stack, implementing end-to-end PPO fine-tuning for RLHF, reward modelling, and DPO support.
+  - Contributed broadly to inference, KV-cache and torch.compile optimisations, multimodal evaluation, and library architecture.
 
-- RLHF with PPO: https://github.com/meta-pytorch/torchtune/pull/1005
-- 3x speedup in RLHF training through extensive profiling, memory snapshot analysis, and by minimising
-  recompiles and eliminating graph breaks in torch.compile:
-    https://github.com/meta-pytorch/torchtune/pull/2066
-- DeepSeekV3 implementation from scratch: https://github.com/pytorch/torchtune/pull/2764
-- Batched inference with KV-caching and recompile/graph-break-free compile support:
-    https://github.com/meta-pytorch/torchtune/pull/1424
-- Dynamic KV-cache control: https://github.com/meta-pytorch/torchtune/pull/1763
+- PyTorch Contributor Award 2024 nominee.
 
-HuggingFace Ecosystem
-
-- N-dimensional parallelism in Accelerate: https://github.com/huggingface/accelerate/pull/3682
-- FSDP2 support for GRPO in TRL: https://github.com/huggingface/trl/pull/3687
-- PEFT support for Liger GRPO in TRL: https://github.com/huggingface/trl/pull/3355
 
 PUBLICATIONS & BLOGPOSTS
 ================================================================================================================================
 
 Publications:
 
+- Pikus, B., Saunders, D., Mironenco, M., Mohammadi, S., et al. “Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent.” arXiv:2610.35817, 2026.
+- Obozov, M., Griot, M., Cummings, J., Smothers, E., Mello, F., Ayub, R., Bontrager, P. J., Mohammadi, S., et al. "torchtune: PyTorch native post-training library". arXiv:2605.21442, 2026.
 - Jaubert, O., Mohammadi, S., et al. "Conformal Coronary Calcification Volume Estimation with Conditional Coverage via
   Histogram Clustering" 2025 IEEE 22nd International Symposium on Biomedical Imaging (ISBI), 2025.
   https://doi.org/10.1109/ISBI60581.2025.10980751
@@ -88,18 +99,12 @@ Publications:
 
 Blogposts:
 
-- Memory Optimization Techniques in torchtune
-  https://meta-pytorch.org/torchtune/main/tutorials/memory_optimizations.html
-- The theory of Proximal Policy Optimization implementations
-  https://salmanmohammadi.github.io/content/ppo/
-- Accelerate ND-Parallel: A guide to Efficient Multi-GPU Training
-  https://huggingface.co/blog/accelerate-nd-parallel
-- Liger GRPO meets TRL
-  https://huggingface.co/blog/liger-grpo
-- Training Large Language Models with Interpreter Feedback using WebAssembly [code: https://github.com/axolotl-ai-cloud/grpo_code]
-  https://huggingface.co/blog/axolotl-ai-co/training-llms-w-interpreter-feedback-wasm
-- Process Reward Models
-  https://axolotlai.substack.com/p/process-reward-models
+- The theory of Proximal Policy Optimization implementations - https://salmanmohammadi.github.io/content/ppo/
+- Accelerate ND-Parallel: A guide to Efficient Multi-GPU Training - https://huggingface.co/blog/accelerate-nd-parallel
+- Quantization-Aware Training in TorchAO (II) - https://pytorch.org/blog/quantization-aware-training-in-torchao-ii/
+- Liger GRPO meets TRL - https://huggingface.co/blog/liger-grpo
+- Training Large Language Models with Interpreter Feedback using WebAssembly -  https://huggingface.co/blog/axolotl-ai-co/training-llms-w-interpreter-feedback-wasm
+- Process Reward Models - https://axolotlai.substack.com/p/process-reward-models
 
 EDUCATION
 ================================================================================================================================
