@@ -47,7 +47,7 @@ Axolotl AI | Open Source Machine Learning Engineer                              
   - Eliminated NCCL timeouts in PEFT MoE training.
   - Added throughput and memory usage monitoring for benchmarking distributed training runs.
 
-Canon Medical Research Europe | Scientist/Research Engineer                                         March 2021 - Dec 2024
+Canon Medical Research Europe | Scientist/Research Engineer                                          March 2021 - Dec 2024
 --------------------------------------------------------------------------------------------------------------------------------
 - Deep learning for medical imaging: UNets, Mask-RCNN, Cascade-RCNN. Developed novel UNet architecture for imbalanced
   segmentation, improving detection metrics by 250%.
@@ -58,7 +58,7 @@ Canon Medical Research Europe | Scientist/Research Engineer                     
 - Led 3-year research study applying deep learning to clinical data for early detection of coronary heart disease. Primary
   author on resulting paper.
 
-Changeway | Machine Learning Engineer                                                               Dec 2019 - Feb 2021
+Changeway | Machine Learning Engineer                                                                Dec 2019 - Feb 2021
 --------------------------------------------------------------------------------------------------------------------------------
 Founding technical role in pre-seed startup applying AI to process improvement.
 
