@@ -38,8 +38,9 @@ Luma AI | Research Scientist/Engineer                                           
 - Optimised simulation infrastructure for robotics RL across NVIDIA Isaac Sim fleets.
   - Improved simulator physics and rendering pipelines, environment routing, and cross-cluster communication.
   - Calibrated simulated motors and environment physics against physical hardware using episode replay pipelines to minimise
-    drift when replaying real-world rollouts in sim. 
-
+    drift when replaying real-world rollouts in sim.
+    
+- Contributed to large-scale ML infrastructure across Kubernetes, GPU networking, storage, and multi-cluster deployments.
 Axolotl AI | Open Source Machine Learning Engineer                                                   January 2025 - February
   2026
 --------------------------------------------------------------------------------------------------------------------------------
