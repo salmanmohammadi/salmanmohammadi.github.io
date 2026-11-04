@@ -41,8 +41,8 @@ Luma AI | Research Scientist/Engineer                                           
     drift when replaying real-world rollouts in sim.
     
 - Contributed to large-scale ML infrastructure across Kubernetes, GPU networking, storage, and multi-cluster deployments.
-Axolotl AI | Open Source Machine Learning Engineer                                                   January 2025 - February
-  2026
+
+Axolotl AI | Open Source Machine Learning Engineer                                              January 2025 - February 2026
 --------------------------------------------------------------------------------------------------------------------------------
 
 - Implemented N-dimensional parallelism support in Hugging Face Accelerate, enabling hybrid FSDP, HSDP, tensor and context
@@ -60,7 +60,7 @@ Axolotl AI | Open Source Machine Learning Engineer                              
   - Eliminated NCCL timeouts in PEFT MoE training.
   - Added throughput and memory usage monitoring for benchmarking distributed training runs.
 
-Canon Medical Research Europe | Scientist/Research Engineer                                          March 2021 - Dec 2024
+Canon Medical Research Europe | Scientist/Research Engineer                                            March 2021 - Dec 2024
 --------------------------------------------------------------------------------------------------------------------------------
 - Deep learning for medical imaging: UNets, Mask-RCNN, Cascade-RCNN. Developed novel UNet architecture for imbalanced
   segmentation, improving detection metrics by 250%.
@@ -71,7 +71,7 @@ Canon Medical Research Europe | Scientist/Research Engineer                     
 - Led 3-year research study applying deep learning to clinical data for early detection of coronary heart disease. Primary
   author on resulting paper.
 
-Changeway | Machine Learning Engineer                                                                Dec 2019 - Feb 2021
+Changeway | Machine Learning Engineer                                                                    Dec 2019 - Feb 2021
 --------------------------------------------------------------------------------------------------------------------------------
 Founding technical role in pre-seed startup applying AI to process improvement.
 
@@ -129,9 +129,9 @@ EDUCATION
 ================================================================================================================================
 
 University of Glasgow
-MSc. Computing Science and Psychology - with Distinction                                             Oct 2019 - Dec 2020
+MSc. Computing Science and Psychology - with Distinction                                                 Oct 2019 - Dec 2020
   Thesis: Weakly-supervised Representation Learning for Abstract Visual Reasoning
   UKRI SOCIAL CDT scholarship recipient
 
-BSc. Computing Science - First Class Honours                                                         Sept 2015 - May 2019
+BSc. Computing Science - First Class Honours                                                             Sept 2015 - May 2019
   Dissertation: Learning Domain-Specific Structured Embeddings for Symbolic Music with LSTMs
