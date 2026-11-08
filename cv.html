@@ -36,47 +36,29 @@
 EXPERIENCE
 ================================================================================================================================
 
-Luma AI | Research Scientist/Engineer                                                              February 2026 - Present
-------------------------------------------------------------------------------------------------------------------------------
-  ---
+Luma AI | Research Scientist/Engineer                                                                February 2026 - Present
 
-- Directly Responsible Individual (DRI) for RL infrastructure, setting technical direction, prioritising projects, and
-  onboarding,
-  mentoring, and unblocking engineers.
+- Directly Responsible Individual (DRI) for RL infrastructure, setting technical direction, prioritising projects, and onboarding, mentoring, and unblocking engineers.
 
-- Developed the company's asynchronous RL training stack, supporting post-training of diffusion, vision-language-action (VLA),
-  and
-  vision-language model (VLM) policies across hundreds of NVIDIA and AMD accelerators.
+- Developed the company's asynchronous RL training stack, supporting post-training of diffusion, vision-language-action (VLA), and vision-language model (VLM) policies across hundreds of NVIDIA and AMD accelerators.
 
-- Led development of asynchronous PPO for flow-matching VLA robotics policies, including reward design and adaptive curriculum
-  learning, scaling to ~400 GPUs in simulation and extending to real robot fleets.
+- Led development of asynchronous PPO for flow-matching VLA robotics policies, including reward design and adaptive curriculum learning, scaling to ~400 GPUs in simulation and extending to real robot fleets.
 
-- Developed RL methods for diffusion image models to improve text rendering capabilities, doubling held-out OCR benchmark
-  performance, with training across 256 GPUs.
+- Developed RL methods for diffusion image models to improve text rendering capabilities, doubling held-out OCR benchmark performance, with training across 256 GPUs.
 
-- Trained VLMs of up to 300B parameters on diverse multimodal tasks including robotics, world understanding, 3D coding, and
-  prompt expansion.
+- Trained VLMs of up to 300B parameters on diverse multimodal tasks including robotics, world understanding, 3D coding, and prompt expansion.
 
-- Contributed simulation and RL infrastructure, experiment planning, and debugging for GRPO training of a VLM-based robotics
-  policy,
-  achieving 96.7% real-world task success after simulation-only training.
-  <a href="https://zero-real.github.io/">https://zero-real.github.io/</a>
+- Contributed simulation and RL infrastructure, experiment planning, and debugging for GRPO training of a VLM-based robotics policy, achieving 96.7% real-world task success after simulation-only training. <a href="https://zero-real.github.io/">https://zero-real.github.io/</a>
 
 - Optimised simulation infrastructure for robotics RL across NVIDIA Isaac Sim fleets.
   - Improved simulator physics and rendering pipelines, environment routing, and cross-cluster communication.
-  - Calibrated simulated motors and environment physics against physical hardware using episode replay pipelines to minimise
-    drift
-    when replaying real-world rollouts in sim.
+  - Calibrated simulated motors and environment physics against physical hardware using episode replay pipelines to minimise drift when replaying real-world rollouts in sim.
 
-- Redesigned distributed training in the company's monorepo, replacing fragmented parallelism implementations with a unified
-  N-dimensional mesh-based sharding system.
+- Redesigned distributed training in the company's monorepo, replacing fragmented parallelism implementations with a unified N-dimensional mesh-based sharding system.
   - Unified FSDP, HSDP, tensor, and context parallelism across deployments of up to 400 GPUs.
-  - Reduced peak memory usage by up to 12% and step time by up to 7% across ~300 training workloads spanning image, video,
-    audio,
-    and LLM experiments.
+  - Reduced peak memory usage by up to 12% and step time by up to 7% across ~300 training workloads spanning image, video, audio, and LLM experiments.
 
-- Unblocked production rollout of a ~750B MoE LLM serving system by diagnosing silent RDMA memory corruption in disaggregated
-  prefill/decode attention caching, fixing corrupted outputs during decode, and substantially reducing decode latency.
+- Unblocked production rollout of a ~750B MoE LLM serving system by diagnosing silent RDMA memory corruption in disaggregated prefill/decode attention caching, fixing corrupted outputs during decode, and substantially reducing decode latency.
 
 - Contributed to large-scale ML infrastructure across Kubernetes, GPU networking, storage, and multi-cluster deployments.
 
