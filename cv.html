@@ -37,35 +37,48 @@ EXPERIENCE
 ================================================================================================================================
 
 Luma AI | Research Scientist/Engineer                                                                February 2026 - Present
-
-- Directly Responsible Individual (DRI) for RL infrastructure, setting technical direction, prioritising projects, and onboarding, mentoring, and unblocking engineers.
-
-- Developed the company's asynchronous RL training stack, supporting post-training of diffusion, vision-language-action (VLA), and vision-language model (VLM) policies across hundreds of NVIDIA and AMD accelerators.
-
-- Led development of asynchronous PPO for flow-matching VLA robotics policies, including reward design and adaptive curriculum learning, scaling to ~400 GPUs in simulation and extending to real robot fleets.
-
-- Developed RL methods for diffusion image models to improve text rendering capabilities, doubling held-out OCR benchmark performance, with training across 256 GPUs.
-
-- Trained VLMs of up to 300B parameters on diverse multimodal tasks including robotics, world understanding, 3D coding, and prompt expansion.
-
-- Contributed simulation and RL infrastructure, experiment planning, and debugging for GRPO training of a VLM-based robotics policy, achieving 96.7% real-world task success after simulation-only training. <a href="https://zero-real.github.io/">https://zero-real.github.io/</a>
-
-- Optimised simulation infrastructure for robotics RL across NVIDIA Isaac Sim fleets.
-  - Improved simulator physics and rendering pipelines, environment routing, and cross-cluster communication.
-  - Calibrated simulated motors and environment physics against physical hardware using episode replay pipelines to minimise drift when replaying real-world rollouts in sim.
-
-- Redesigned distributed training in the company's monorepo, replacing fragmented parallelism implementations with a unified N-dimensional mesh-based sharding system.
-  - Unified FSDP, HSDP, tensor, and context parallelism across deployments of up to 400 GPUs.
-  - Reduced peak memory usage by up to 12% and step time by up to 7% across ~300 training workloads spanning image, video, audio, and LLM experiments.
-
-- Unblocked production rollout of a ~750B MoE LLM serving system by diagnosing silent RDMA memory corruption in disaggregated prefill/decode attention caching, fixing corrupted outputs during decode, and substantially reducing decode latency.
-
-- Contributed to large-scale ML infrastructure across Kubernetes, GPU networking, storage, and multi-cluster deployments.
-
-Axolotl AI | Open Source Machine Learning Engineer                                            January 2025 - February 2026
 --------------------------------------------------------------------------------------------------------------------------------
 
-- Implemented N-dimensional parallelism support in Hugging Face Accelerate, enabling hybrid FSDP, HSDP, tensor and context parallelism for multi-node training.
+- Directly Responsible Individual (DRI) for RL infrastructure, setting technical direction, prioritising projects,
+  and onboarding, mentoring, and unblocking engineers.
+
+- Designed and implemented RL training methods for robotic manipulation, contributing to research across PPO and GRPO.
+  - Led development of asynchronous PPO for flow-matching VLA policies, including reward design and adaptive curriculum
+    learning, scaling to ~400 GPUs in simulation and extending to real robot fleets.
+  - Contributed simulation and RL infrastructure, experiment planning, and debugging for GRPO training of a VLM-based
+    robotics policy, which achieved 96.7% real-world task success after simulation-only training.
+    <a href="https://zero-real.github.io/">https://zero-real.github.io/</a>
+
+- Built and optimised simulation infrastructure for robotics RL across NVIDIA Isaac Sim fleets.
+  - Improved simulator physics and rendering pipelines, environment routing, and simulation performance.
+  - Calibrated simulated motors and environment physics against physical hardware using episode replay pipelines to
+    minimise drift when replaying real-world rollouts in simulation.
+
+- Developed the company&#x27;s asynchronous RL training stack, supporting post-training of diffusion, vision-language-action
+  (VLA), and vision-language models (VLMs) across hundreds of NVIDIA and AMD accelerators.
+  - Designed and executed RL experiments for diffusion image models to improve text rendering capabilities, developing
+    training methods that doubled held-out OCR benchmark performance with training across 256 GPUs.
+  - Optimised training and environment infrastructure for GRPO post-training of VLMs up to 300B parameters, designing
+    and executing experiments across robotics, world understanding, 3D coding, and prompt expansion tasks.
+
+- Redesigned distributed training in the company&#x27;s monorepo, replacing fragmented parallelism implementations with
+  a unified N-dimensional mesh-based sharding system.
+  - Unified FSDP, HSDP, tensor, and context parallelism across deployments of up to 400 GPUs.
+  - Reduced peak memory usage by up to 12% and step time by up to 7% across ~300 training workloads spanning image,
+    video, audio, and LLM experiments.
+
+- Unblocked production rollout of a ~750B MoE LLM serving system by diagnosing silent RDMA memory corruption in
+  disaggregated prefill/decode attention caching, fixing corrupted outputs during decode, and substantially reducing
+  decode latency.
+
+- Contributed to Kubernetes-based ML infrastructure, implementing cross-cluster simulation orchestration, GPU workload
+  provisioning, and improvements to networking, storage, and resource scheduling.
+
+Axolotl AI | Open Source Machine Learning Engineer                                              January 2025 - February 2026
+--------------------------------------------------------------------------------------------------------------------------------
+
+- Implemented N-dimensional parallelism support in Hugging Face Accelerate, enabling hybrid FSDP, HSDP, tensor and context
+  parallelism for multi-node training.
 
 - Extended support for several post-training paradigms:
   - Quantization-aware training with int4, fp8, and nvfp4 layouts.
@@ -79,7 +92,7 @@ Axolotl AI | Open Source Machine Learning Engineer                              
   - Eliminated NCCL timeouts in PEFT MoE training.
   - Added throughput and memory usage monitoring for benchmarking distributed training runs.
 
-Canon Medical Research Europe | Scientist/Research Engineer                                          March 2021 - Dec 2024
+Canon Medical Research Europe | Scientist/Research Engineer                                            March 2021 - Dec 2024
 --------------------------------------------------------------------------------------------------------------------------------
 - Deep learning for medical imaging: UNets, Mask-RCNN, Cascade-RCNN. Developed novel UNet architecture for imbalanced
   segmentation, improving detection metrics by 250%.
@@ -90,7 +103,7 @@ Canon Medical Research Europe | Scientist/Research Engineer                     
 - Led 3-year research study applying deep learning to clinical data for early detection of coronary heart disease. Primary
   author on resulting paper.
 
-Changeway | Machine Learning Engineer                                                                Dec 2019 - Feb 2021
+Changeway | Machine Learning Engineer                                                                    Dec 2019 - Feb 2021
 --------------------------------------------------------------------------------------------------------------------------------
 Founding technical role in pre-seed startup applying AI to process improvement.
 
@@ -101,31 +114,36 @@ Open-Source Contributions
 ================================================================================================================================
 
 - nanocode: An end-to-end LLM training pipeline, from scratch in pure JAX.
-  - Implemented the full training stack spanning tokenizer training, model pretraining, synthetic data generation, agentic SFT, and DPO.
-  - Pretrained a 1.3B parameter model on 10.7B tokens using 8 TPU v6e chips for ~$200, achieving 52.5% MFU; reached the Hacker News front page (219 points, 270 GitHub stars).
+  - Implemented the full training stack spanning tokenizer training, model pretraining, synthetic data generation, agentic
+    SFT, and DPO.
+  - Pretrained a 1.3B parameter model on 10.7B tokens using 8 TPU v6e chips for ~$200, achieving 52.5% MFU; reached the
+    Hacker News front page (219 points, 270 GitHub stars).
   - <a href="https://github.com/salmanmohammadi/nanocode">https://github.com/salmanmohammadi/nanocode</a>
 
 - PyTorch torchtune — Core Maintainer (Jul 2024–Jul 2025)
-  - Maintained and developed the library's RL stack, implementing end-to-end PPO fine-tuning for RLHF, reward modelling, and DPO support.
+  - Maintained and developed the library&#x27;s RL stack, implementing end-to-end PPO fine-tuning for RLHF, reward modelling, and
+    DPO support.
   - Contributed broadly to inference, KV-cache and torch.compile optimisations, multimodal evaluation, and library architecture.
 
 - PyTorch Contributor Award 2024 nominee.
 
 
-PUBLICATIONS & BLOGPOSTS
+PUBLICATIONS &amp; BLOGPOSTS
 ================================================================================================================================
 
 Publications:
 
-- Pikus, B., Saunders, D., Mironenco, M., Mohammadi, S., et al. “Pretraining Knows What, Simulation Teaches How: Compositional Generalization in a Sim-Trained Robot Agent.” <a href="https://arxiv.org/abs/2610.35817">arXiv:2610.35817</a>, 2026.
-- Obozov, M., Griot, M., Cummings, J., Smothers, E., Mello, F., Ayub, R., Bontrager, P. J., Mohammadi, S., et al. "torchtune: PyTorch native post-training library". <a href="https://arxiv.org/abs/2605.21442">arXiv:2605.21442</a>, 2026.
-- Jaubert, O., Mohammadi, S., et al. "Conformal Coronary Calcification Volume Estimation with Conditional Coverage via
-  Histogram Clustering" 2025 IEEE 22nd International Symposium on Biomedical Imaging (ISBI), 2025.
+- Pikus, B., Saunders, D., Mironenco, M., Mohammadi, S., et al. “Pretraining Knows What, Simulation Teaches How: Compositional
+  Generalization in a Sim-Trained Robot Agent.” arXiv:2610.35817, 2026.
+- Obozov, M., Griot, M., Cummings, J., Smothers, E., Mello, F., Ayub, R., Bontrager, P. J., Mohammadi, S., et al. &quot;torchtune:
+  PyTorch native post-training library&quot;. arXiv:2605.21442, 2026.
+- Jaubert, O., Mohammadi, S., et al. &quot;Conformal Coronary Calcification Volume Estimation with Conditional Coverage via
+  Histogram Clustering&quot; 2025 IEEE 22nd International Symposium on Biomedical Imaging (ISBI), 2025.
   <a href="https://doi.org/10.1109/ISBI60581.2025.10980751">https://doi.org/10.1109/ISBI60581.2025.10980751</a>
-- Mohammadi, S., et al. "Deep learning-based detection of coronary artery calcification in non-contrast and contrast-enhanced
-  CT scans" Preprint - in review.
+- Mohammadi, S., et al. &quot;Deep learning-based detection of coronary artery calcification in non-contrast and contrast-enhanced
+  CT scans&quot; Preprint - in review.
   <a href="https://doi.org/10.21203/rs.3.rs-4281908/v1">https://doi.org/10.21203/rs.3.rs-4281908/v1</a>
-- Mohammadi, S., Uhrenholt, A., Jensen, B. "Odd-One-Out Representation Learning" NeurIPS 2020 Workshop on Object
+- Mohammadi, S., Uhrenholt, A., Jensen, B. &quot;Odd-One-Out Representation Learning&quot; NeurIPS 2020 Workshop on Object
   Representations for Learning and Reasoning.
   <a href="https://arxiv.org/abs/2012.07966">https://arxiv.org/abs/2012.07966</a>
 
@@ -135,18 +153,19 @@ Blogposts:
 - Accelerate ND-Parallel: A guide to Efficient Multi-GPU Training - <a href="https://huggingface.co/blog/accelerate-nd-parallel">https://huggingface.co/blog/accelerate-nd-parallel</a>
 - Quantization-Aware Training in TorchAO (II) - <a href="https://pytorch.org/blog/quantization-aware-training-in-torchao-ii/">https://pytorch.org/blog/quantization-aware-training-in-torchao-ii/</a>
 - Liger GRPO meets TRL - <a href="https://huggingface.co/blog/liger-grpo">https://huggingface.co/blog/liger-grpo</a>
-- Training Large Language Models with Interpreter Feedback using WebAssembly - <a href="https://huggingface.co/blog/axolotl-ai-co/training-llms-w-interpreter-feedback-wasm">https://huggingface.co/blog/axolotl-ai-co/training-llms-w-interpreter-feedback-wasm</a>
+- Training Large Language Models with Interpreter Feedback using WebAssembly -
+  <a href="https://huggingface.co/blog/axolotl-ai-co/training-llms-w-interpreter-feedback-wasm">https://huggingface.co/blog/axolotl-ai-co/training-llms-w-interpreter-feedback-wasm</a>
 - Process Reward Models - <a href="https://axolotlai.substack.com/p/process-reward-models">https://axolotlai.substack.com/p/process-reward-models</a>
 
 EDUCATION
 ================================================================================================================================
 
 University of Glasgow
-MSc. Computing Science and Psychology - with Distinction                                               Oct 2019 - Dec 2020
+MSc. Computing Science and Psychology - with Distinction                                                 Oct 2019 - Dec 2020
   Thesis: Weakly-supervised Representation Learning for Abstract Visual Reasoning
   UKRI SOCIAL CDT scholarship recipient
 
-BSc. Computing Science - First Class Honours                                                          Sept 2015 - May 2019
+BSc. Computing Science - First Class Honours                                                             Sept 2015 - May 2019
   Dissertation: Learning Domain-Specific Structured Embeddings for Symbolic Music with LSTMs
 </body>
 </html>
