@@ -20,7 +20,8 @@ Luma AI | Research Scientist/Engineer                                           
     https://zero-real.github.io/
 
 - Built and optimised simulation infrastructure for robotics RL across NVIDIA Isaac Sim fleets.
-  - Improved simulator physics and rendering pipelines, environment routing, and simulation performance.
+  - Improved simulator physics fidelity and RTX rendering, environment routing, and simulation performance, to enable high
+    throughput rollouts for RL.
   - Calibrated simulated motors and environment physics against physical hardware using episode replay pipelines to
     minimise drift when replaying real-world rollouts in simulation.
 
