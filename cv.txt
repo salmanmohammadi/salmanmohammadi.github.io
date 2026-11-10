@@ -6,27 +6,27 @@ github.com/SalmanMohammadi | salmanmohammadi.github.io
 EXPERIENCE
 ================================================================================================================================
 
-Luma AI | Research Scientist/Engineer                                                                February 2026 - Present
+Luma AI | Research Scientist/Engineer                                                                 February 2026 - Present
 --------------------------------------------------------------------------------------------------------------------------------
 
-- Directly Responsible Individual (DRI) for RL infrastructure, setting technical direction, prioritising projects,
-  and sprints, and onboarding, mentoring, and unblocking engineers.
+- Directly Responsible Individual (DRI) for RL infrastructure, setting technical direction, prioritising projects and sprints, 
+  and onboarding, mentoring, and unblocking engineers.
 
 - Designed and implemented RL training methods for robotic manipulation, contributing to research across PPO and GRPO.
-  - Led development of asynchronous PPO for flow-matching VLA policies, including reward design and adaptive curriculum
-    learning, scaling to ~400 GPUs in simulation and extending to real robot fleets.
-  - Contributed simulation and RL infrastructure, experiment planning, and debugging for GRPO training of a VLM-based
-    robotics policy, which achieved 96.7% real-world task success after simulation-only training.
+  - Led development of asynchronous PPO for flow-matching vision-language-action (VLA) policies, including reward design and 
+    adaptive curriculum learning, scaling to ~400 GPUs in simulation and extending to real robot fleets.
+  - Contributed simulation and RL infrastructure, experiment planning, and debugging for GRPO training of a vision-language
+    model (VLM)-based robotics policy, which achieved 96.7% real-world task success after simulation-only training.
     https://zero-real.github.io/
 
 - Built and optimised simulation infrastructure for robotics RL across NVIDIA Isaac Sim fleets.
-  - Improved simulator physics fidelity and RTX rendering, environment routing, and simulation performance, to enable high
-    throughput rollouts for RL.
+  - Improved simulator physics fidelity and RTX rendering, environment routing, and simulation performance to enable
+    high-throughput rollouts for RL.
   - Calibrated simulated motors and environment physics against physical hardware using episode replay pipelines to
     minimise drift when replaying real-world rollouts in simulation.
 
-- Developed the company's asynchronous RL training stack, supporting post-training of diffusion, vision-language-action
-  (VLA), and vision-language models (VLMs) across hundreds of NVIDIA and AMD accelerators.
+- Developed the company's asynchronous RL training stack, supporting post-training of diffusion models, VLAs, and VLMs across 
+  hundreds of NVIDIA and AMD accelerators.
   - Designed and executed RL experiments for diffusion image models to improve text rendering capabilities, developing
     training methods that doubled held-out OCR benchmark performance with training across 256 GPUs.
   - Optimised training and environment infrastructure for GRPO post-training of VLMs up to 300B parameters, designing
@@ -45,7 +45,7 @@ Luma AI | Research Scientist/Engineer                                           
 - Contributed to Kubernetes-based ML infrastructure, implementing cross-cluster simulation orchestration, GPU workload
   provisioning, and improvements to networking, storage, and resource scheduling.
   
-Axolotl AI | Open Source Machine Learning Engineer                                              January 2025 - February 2026
+Axolotl AI | Open Source Machine Learning Engineer                                               January 2025 - February 2026
 --------------------------------------------------------------------------------------------------------------------------------
 
 - Implemented N-dimensional parallelism support in Hugging Face Accelerate, enabling hybrid FSDP, HSDP, tensor and context
@@ -63,7 +63,7 @@ Axolotl AI | Open Source Machine Learning Engineer                              
   - Eliminated NCCL timeouts in PEFT MoE training.
   - Added throughput and memory usage monitoring for benchmarking distributed training runs.
 
-Canon Medical Research Europe | Scientist/Research Engineer                                            March 2021 - Dec 2024
+Canon Medical Research Europe | Scientist/Research Engineer                                             March 2021 - Dec 2024
 --------------------------------------------------------------------------------------------------------------------------------
 - Deep learning for medical imaging: UNets, Mask-RCNN, Cascade-RCNN. Developed novel UNet architecture for imbalanced
   segmentation, improving detection metrics by 250%.
@@ -74,7 +74,7 @@ Canon Medical Research Europe | Scientist/Research Engineer                     
 - Led 3-year research study applying deep learning to clinical data for early detection of coronary heart disease. Primary
   author on resulting paper.
 
-Changeway | Machine Learning Engineer                                                                    Dec 2019 - Feb 2021
+Changeway | Machine Learning Engineer                                                                     Dec 2019 - Feb 2021
 --------------------------------------------------------------------------------------------------------------------------------
 Founding technical role in pre-seed startup applying AI to process improvement.
 
@@ -132,7 +132,7 @@ EDUCATION
 ================================================================================================================================
 
 University of Glasgow
-MSc. Computing Science and Psychology - with Distinction                                                 Oct 2019 - Dec 2020
+MSc. Computing Science and Psychology - with Distinction                                                  Oct 2019 - Dec 2020
   Thesis: Weakly-supervised Representation Learning for Abstract Visual Reasoning
   UKRI SOCIAL CDT scholarship recipient
 
